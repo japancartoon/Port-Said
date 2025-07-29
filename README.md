@@ -7,6 +7,27 @@ JetBrains uses this **swot** repository to grant free licenses for JetBrains too
 
 **Please notice that some email domains were abused in the past, and we don't trust them now**. The list of such domains is in the file https://github.com/JetBrains/swot/blob/master/lib/domains/abused.txt. If you are a student with email address in an abused domain, please request your free license with GitHub or ISIC authentication at **GitHub** or **ISIC** tabs at https://www.jetbrains.com/shop/eform/students. Teachers can request their licenses with their official documents, too (**Official Document** tab at https://www.jetbrains.com/shop/eform/students.
 
+## n8n Customer Service Integration
+
+This repository now includes automated customer service capabilities using n8n workflows. The integration allows for:
+
+- **Automated Domain Verification**: Trigger n8n workflows for new domain requests with pre-verification using swot logic
+- **Support Request Processing**: Route support tickets through n8n with academic domain context
+- **Batch Processing**: Handle multiple verification requests efficiently
+- **Health Monitoring**: Monitor both swot library and n8n connectivity
+
+See [N8N_CUSTOMER_SERVICE.md](N8N_CUSTOMER_SERVICE.md) for detailed documentation and usage examples.
+
+Quick example:
+```kotlin
+val customerService = CustomerServiceFactory.create("https://your-n8n.com")
+val result = customerService.processDomainVerification(
+    domain = "university.edu",
+    institutionName = "University Name", 
+    requesterEmail = "admin@university.edu"
+)
+```
+
 ## Which educational institutions can be added to the repository?
 
 Your pull request for adding a new email domain to the repository will be satisfied if all of the conditions below are met:
